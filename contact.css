@@ -1,0 +1,19 @@
+/* ==========================================================
+                        Page Contact 
+   ========================================================== */
+
+/* Liste des réseaux sociaux sans puces */
+.liste-simple { list-style: none; margin: 0; padding: 0; }
+
+/* Formulaire de contact : largeur limitée pour rester agréable à lire */
+.formulaire-etroit { max-width: 700px; }
+
+/* Plan d'accès intégré (iframe) : pleine largeur, sans bordure par défaut */
+.plan { width: 100%; height: 320px; border: 0; border-radius: 10px; margin-bottom: 1rem; }
+
+/* À partir de 480 px : les 4 blocs de coordonnées passent sur 2 colonnes
+   (sur 4 colonnes à partir de 1024 px, règle .grille-4 de style.css) */
+@media (min-width: 480px) { .grille-4 { grid-template-columns: repeat(2, 1fr); } }
+
+/* Sur ordinateur, le plan est plus haut */
+@media (min-width: 1024px) { .plan { height: 420px; } }

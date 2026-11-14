@@ -1,0 +1,23 @@
+/* ==========================================================
+                        Page Menu 
+   ========================================================== */
+
+/* Barre de navigation par catégories (Entrées, Plats, etc.) */
+.nav-categories {
+  background: var(--creme); padding: .75rem 0;
+  position: sticky; top: var(--hauteur-entete); z-index: 50;   /* sticky : reste collée sous l'en-tête pendant le défilement */
+}
+.nav-categories ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }  /* boutons côte à côte */
+.nav-categories a {
+  display: inline-block; padding: .35rem .9rem; border-radius: 999px;   /* 999px = forme de pastille */
+  background: var(--blanc); color: var(--brun); font-weight: 600; text-decoration: none;
+  border: 1px solid var(--brique);
+  text-align: center;
+}
+.nav-categories a:hover { background: var(--brique); color: var(--blanc); }
+
+/* Sections du menu : espacement réduit (identifiées par leur id, cibles des liens d'ancre) */
+#entrees, #plats, #accompagnements, #desserts, #boissons { padding: 2rem 0 1rem; }
+
+/* La colonne du nom du plat garde une largeur minimale pour rester lisible sur mobile */
+.table-defilante th[scope="row"] { min-width: 10rem; }

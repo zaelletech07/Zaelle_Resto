@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu — Zaëlle Resto</title>
+  <meta name="description" content="Découvrez nos entrées, plats, desserts et boissons préparés chaque jour.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <!-- EN-TÊTE (identique sur les 5 pages) -->
+  <header class="entete">
+    <a class="logo" href="index.html">Zaëlle Resto</a>
+    <a class="btn btn-reserver" href="reservation.html">Réserver</a>
+    <input type="checkbox" id="menu-case" class="menu-case" aria-label="Ouvrir ou fermer le menu">
+    <label for="menu-case" class="burger" title="Menu"><span></span></label>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 4.1 En-tête de page : le seul h1 -->
+    <section class="titre-page">
+      <div class="conteneur">
+        <h1>Notre menu</h1>
+        <p>Des recettes créoles authentiques et des classiques internationaux, préparés chaque jour dans notre cuisine. Laissez-vous tenter !</p>
+      </div>
+    </section>
+
+    <!-- Navigation par catégories : liens d'ancre vers les id des sections -->
+    <nav class="nav-categories" aria-label="Catégories du menu">
+      <div class="conteneur">
+        <ul>
+          <li><a href="#entrees">Entrées</a></li>
+          <li><a href="#plats">Plats principaux</a></li>
+          <li><a href="#accompagnements">Accompagnements</a></li>
+          <li><a href="#desserts">Desserts</a></li>
+          <li><a href="#boissons">Boissons</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="conteneur">
+
+      <!-- 4.2 Entrées -->
+      <section class="section" id="entrees">
+        <h2 id="titre-entrees">Entrées</h2>
+        <div class="table-defilante">
+          <table aria-labelledby="titre-entrees">
+            <thead>
+              <tr><th scope="col">Plat</th><th scope="col">Description</th><th scope="col">Prix</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Accras de morue</th><td>Beignets croustillants de morue aux herbes, sauce piquante</td><td>9 $</td></tr>
+              <tr><th scope="row">Pâtés kodé</th><td>Chaussons frits farcis au bœuf ou au hareng saur</td><td>8 $</td></tr>
+              <tr><th scope="row">Salade fraîcheur</th><td>Laitue, avocat, mangue et vinaigrette aux agrumes</td><td>10 $</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4.3 Plats principaux -->
+      <section class="section" id="plats">
+        <h2 id="titre-plats">Plats principaux</h2>
+        <div class="table-defilante">
+          <table aria-labelledby="titre-plats">
+            <thead>
+              <tr><th scope="col">Plat</th><th scope="col">Description</th><th scope="col">Prix</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Griot et bananes pesées</th><td>Porc mariné et frit, pikliz maison</td><td>22 $</td></tr>
+              <tr><th scope="row">Poisson gros sel</th><td>Poisson frais, sauce aux herbes et citron vert</td><td>26 $</td></tr>
+              <tr><th scope="row">Poulet en sauce créole</th><td>Poulet mijoté, sauce tomate épicée, riz collé</td><td>19 $</td></tr>
+              <tr><th scope="row">Légumes mijotés <span aria-hidden="true">🌿</span><span class="visuellement-cache">(végétarien)</span></th><td>Aubergine, chou, carottes et épinards mijotés</td><td>17 $</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4.4 Accompagnements -->
+      <section class="section" id="accompagnements">
+        <h2 id="titre-accompagnements">Accompagnements</h2>
+        <div class="table-defilante">
+          <table aria-labelledby="titre-accompagnements">
+            <thead>
+              <tr><th scope="col">Plat</th><th scope="col">Description</th><th scope="col">Prix</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Riz collé aux pois</th><td>Riz cuit avec haricots rouges et épices</td><td>5 $</td></tr>
+              <tr><th scope="row">Bananes pesées</th><td>Bananes plantain vertes frites deux fois</td><td>5 $</td></tr>
+              <tr><th scope="row">Frites de patate douce</th><td>Coupées maison, légèrement salées</td><td>6 $</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4.5 Desserts -->
+      <section class="section" id="desserts">
+        <h2 id="titre-desserts">Desserts</h2>
+        <div class="table-defilante">
+          <table aria-labelledby="titre-desserts">
+            <thead>
+              <tr><th scope="col">Plat</th><th scope="col">Description</th><th scope="col">Prix</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Pain patate</th><td>Gâteau de patate douce à la banane et à la cannelle</td><td>7 $</td></tr>
+              <tr><th scope="row">Blanc-manger coco</th><td>Crème légère à la noix de coco</td><td>7 $</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4.6 Boissons -->
+      <section class="section" id="boissons">
+        <h2 id="titre-boissons">Boissons</h2>
+        <div class="table-defilante">
+          <table aria-labelledby="titre-boissons">
+            <thead>
+              <tr><th scope="col">Boisson</th><th scope="col">Description</th><th scope="col">Prix</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Jus de fruits frais</th><td>Grenadine, mangue ou corossol selon la saison</td><td>5 $</td></tr>
+              <tr><th scope="row">Limonade maison</th><td>Citron vert, sucre de canne, menthe</td><td>4 $</td></tr>
+              <tr><th scope="row">Café ou thé</th><td>Café haïtien ou sélection de thés</td><td>3 $</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4.7 Mention en bas de page -->
+      <section class="section centre">
+        <p>Informez notre équipe de toute allergie ou restriction alimentaire avant de commander. Les plats végétariens sont identifiés par une icône verte (<span aria-hidden="true">🌿</span>). Les prix incluent le service, mais pas les taxes.</p>
+        <a class="btn" href="reservation.html">Réserver une table</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- PIED DE PAGE (identique sur les 5 pages) -->
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="grille grille-3">
+        <section>
+          <h2>Zaëlle Resto</h2>
+          <p>Une cuisine créole et internationale, faite avec cœur.</p>
+        </section>
+        <section>
+          <h2>Horaires d’ouverture</h2>
+          <ul>
+            <li>Lundi : 12 h – 21 h</li>
+            <li>Mardi à jeudi : 11 h 30 – 22 h</li>
+            <li>Vendredi et samedi : 11 h 30 – 23 h</li>
+            <li>Dimanche : fermé</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Visitez-nous</h2>
+          <address>
+            #76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.<br>
+            <a href="tel:+(509) 3401-9469 / 41825701">+(509) 3401-9469 / 41825701</a><br>
+            <a href="mailto:zaelleresto21@gmail.com">zaelleresto21@gmail.com</a>
+          </address>
+          <ul>
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/">TikTok</a></li>
+          </ul>
+        </section>
+      </div>
+      <p class="mentions">© 2026 Zaëlle Resto. Tous droits réservés. · <a href="#">Politique de confidentialité</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

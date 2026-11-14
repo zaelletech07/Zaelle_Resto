@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Zaëlle Resto</title>
+  <meta name="description" content="Adresse, horaires, téléphone et formulaire de contact de Zaëlle Resto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <!-- EN-TÊTE (identique sur les 5 pages) -->
+  <header class="entete">
+    <a class="logo" href="index.html">Zaëlle Resto</a>
+    <a class="btn btn-reserver" href="reservation.html">Réserver</a>
+    <input type="checkbox" id="menu-case" class="menu-case" aria-label="Ouvrir ou fermer le menu">
+    <label for="menu-case" class="burger" title="Menu"><span></span></label>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="titre-page">
+      <div class="conteneur">
+        <h1>Contactez-nous</h1>
+        <p>Une question, une suggestion ou un événement à organiser ? Notre équipe vous répond avec plaisir, généralement sous 24 heures.</p>
+      </div>
+    </section>
+
+    <!-- 7.2 Coordonnées -->
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="centre">Nos coordonnées</h2>
+        <div class="grille grille-4">
+          <div class="bloc"><span class="icone" aria-hidden="true">📍</span><h3>Adresse</h3><address>#76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.</address></div>
+          <div class="bloc"><span class="icone" aria-hidden="true">📞</span><h3>Téléphone</h3><p><a href="tel:+(509) 3401-9469 / 4182-5701">+(509) 3401-9469 / 4182-5701</a></p></div>
+          <div class="bloc"><span class="icone" aria-hidden="true">✉️</span><h3>Courriel</h3><p><a href="mailto:zaelleresto21@gmail.com">zaelleresto21@gmail.com</a></p></div>
+          <div class="bloc"><span class="icone" aria-hidden="true">🌐</span><h3>Réseaux sociaux</h3>
+            <ul class="liste-simple">
+              <li><a href="https://www.facebook.com/">Facebook</a></li>
+              <li><a href="https://www.instagram.com/">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/">TikTok</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7.3 Formulaire de contact -->
+    <section class="section section-alt">
+      <div class="conteneur formulaire-etroit">
+        <h2>Envoyez-nous un message</h2>
+        <p id="merci" class="message-succes" role="status">Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.</p>
+        <form class="formulaire" action="contact.html#merci" method="get">
+          <p class="message-erreur" role="alert">Votre message n’a pas pu être envoyé. Veuillez vérifier les champs et réessayer.</p>
+          <div class="champ">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required minlength="2" maxlength="60" autocomplete="name">
+          </div>
+          <div class="champ">
+            <label for="courriel">Courriel</label>
+            <input type="email" id="courriel" name="courriel" required autocomplete="email">
+          </div>
+          <div class="champ">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet" required>
+              <option value="">— Choisir —</option>
+              <option value="question">Question générale</option>
+              <option value="evenement">Événement privé</option>
+              <option value="commentaire">Commentaire</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="champ">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required minlength="10" maxlength="1000"></textarea>
+          </div>
+          <button class="btn" type="submit">Envoyer le message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 7.4 Plan d'accès -->
+    <section class="section">
+      <div class="conteneur">
+        <h2>Comment nous trouver</h2>
+        <p>Nous sommes facilement accessibles en transport en commun et en voiture. Un stationnement est disponible à proximité du restaurant.</p>
+        <!-- CARTE-A-COMPLETER : remplace l'adresse de l'iframe par celle de ton restaurant (OpenStreetMap > Partager > Intégrer) -->
+        <iframe class="plan" title="Plan d’accès à Zaëlle Resto" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-72.36%2C18.52%2C-72.31%2C18.56&amp;layer=mapnik"></iframe>
+        <p><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=#76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.">Obtenir l’itinéraire</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIED DE PAGE (identique sur les 5 pages) -->
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="grille grille-3">
+        <section>
+          <h2>Zaëlle Resto</h2>
+          <p>Une cuisine créole et internationale, faite avec cœur.</p>
+        </section>
+        <section>
+          <h2>Horaires d’ouverture</h2>
+          <ul>
+            <li>Lundi : 12 h – 21 h</li>
+            <li>Mardi à jeudi : 11 h 30 – 22 h</li>
+            <li>Vendredi et samedi : 11 h 30 – 23 h</li>
+            <li>Dimanche : fermé</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Nous joindre</h2>
+          <address>
+            #76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.<br>
+            <a href="tel:+(509) 3401-9469 / 4182-5701">+(509) 3401-9469 / 4182-5701</a><br>
+            <a href="mailto:zaelleresto21@gmail.com">zaelleresto21@gmail.com</a>
+          </address>
+          <ul>
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/">TikTok</a></li>
+          </ul>
+        </section>
+      </div>
+      <p class="mentions">© 2026 Zaëlle Resto. Tous droits réservés. · <a href="#">Politique de confidentialité</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

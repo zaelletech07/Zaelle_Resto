@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réserver une table — Zaëlle Resto</title>
+  <meta name="description" content="Réservez votre table en ligne en moins d’une minute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body>
+
+  <!-- EN-TÊTE (identique sur les 5 pages) -->
+  <header class="entete">
+    <a class="logo" href="index.html">Zaëlle Resto</a>
+    <a class="btn btn-reserver" href="reservation.html">Réserver</a>
+    <input type="checkbox" id="menu-case" class="menu-case" aria-label="Ouvrir ou fermer le menu">
+    <label for="menu-case" class="burger" title="Menu"><span></span></label>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="reservation.html" aria-current="page">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="titre-page">
+      <div class="conteneur">
+        <h1>Réserver une table</h1>
+        <p>Choisissez votre date, votre heure et le nombre de convives. Nous vous confirmerons votre réservation par courriel dans les plus brefs délais.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="conteneur reservation-colonnes">
+
+        <!-- 6.2 Formulaire : construit et contrôlé côté client uniquement -->
+        <div>
+          <h2>Votre réservation</h2>
+          <p id="merci" class="message-succes" role="status">Merci ! Votre demande de réservation a bien été reçue. Un courriel de confirmation vous sera envoyé sous peu.</p>
+          <form class="formulaire" action="reservation.html#merci" method="get">
+            <p class="message-erreur" role="alert">Veuillez vérifier les champs indiqués en rouge.</p>
+
+            <div class="champ">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" required minlength="2" maxlength="60" autocomplete="name">
+            </div>
+            <div class="champ">
+              <label for="courriel">Courriel</label>
+              <input type="email" id="courriel" name="courriel" required autocomplete="email">
+            </div>
+            <div class="champ">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" required pattern="[0-9]{10}" inputmode="numeric" maxlength="10" autocomplete="tel" aria-describedby="aide-tel">
+              <p class="aide" id="aide-tel">10 chiffres, sans espace ni tiret.</p>
+            </div>
+            <div class="champ">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date" required min="2026-10-07" aria-describedby="aide-date">
+              <p class="aide" id="aide-date">Fermé le Dimanche.</p>
+            </div>
+            <div class="champ">
+              <label for="heure">Heure</label>
+              <input type="time" id="heure" name="heure" required min="11:30" max="22:30" step="1800">
+            </div>
+            <div class="champ">
+              <label for="personnes">Nombre de personnes</label>
+              <input type="number" id="personnes" name="personnes" required min="1" max="12" step="1">
+            </div>
+            <div class="champ">
+              <label for="occasion">Occasion (facultatif)</label>
+              <select id="occasion" name="occasion">
+                <option value="">— Choisir —</option>
+                <option value="anniversaire">Anniversaire</option>
+                <option value="affaires">Affaires</option>
+                <option value="romantique">Romantique</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label for="demandes">Demandes particulières (facultatif)</label>
+              <textarea id="demandes" name="demandes" rows="4" maxlength="500"></textarea>
+            </div>
+            <button class="btn" type="submit">Confirmer la réservation</button>
+          </form>
+        </div>
+
+        <!-- 6.3 et 6.4 -->
+        <aside>
+          <h2>Bon à savoir</h2>
+          <ul>
+            <li>Les réservations sont conservées 15 minutes après l’heure prévue.</li>
+            <li>Pour les groupes de plus de 12 personnes, contactez-nous par téléphone.</li>
+            <li>Toute annulation doit être faite au moins 2 heures à l’avance.</li>
+          </ul>
+          <h2>Horaires d’ouverture</h2>
+          <table aria-label="Horaires d’ouverture">
+            <thead><tr><th scope="col">Jour</th><th scope="col">Heures</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Lundi</th><td>12 h – 21 h</td></tr>
+              <tr><th scope="row">Mardi à Jeudi</th><td>11 h 30 – 22 h</td></tr>
+              <tr><th scope="row">Vendredi et Samedi</th><td>11 h 30 – 23 h</td></tr>
+              <tr><th scope="row">Dimanche</th><td>Fermé</td></tr>
+            </tbody>
+          </table>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- PIED DE PAGE (identique sur les 5 pages) -->
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="grille grille-3">
+        <section>
+          <h2>Zaëlle Resto</h2>
+          <p>Une cuisine créole et internationale, faite avec cœur.</p>
+        </section>
+        <section>
+          <h2>Horaires d’ouverture</h2>
+          <ul>
+            <li>Lundi : 12 h – 21 h</li>
+            <li>Mardi à jeudi : 11 h 30 – 22 h</li>
+            <li>Vendredi et samedi : 11 h 30 – 23 h</li>
+            <li>Dimanche : fermé</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Nous joindre</h2>
+          <address>
+            #76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.<br>
+            <a href="tel:+(509) 3401-9469 / 4182-5701">+(509) 3401-9469 / 4182-5701</a><br>
+            <a href="mailto:zaelleresto21@gmail.com">zaelleresto21@gmail.com</a>
+          </address>
+          <ul>
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/">TikTok</a></li>
+          </ul>
+        </section>
+      </div>
+      <p class="mentions">© 2026 Zaëlle Resto. Tous droits réservés. · <a href="#">Politique de confidentialité</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

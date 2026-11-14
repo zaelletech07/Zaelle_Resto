@@ -1,0 +1,253 @@
+/* ==========================================================
+   Zaëlle Resto — feuille de style COMMUNE aux 5 pages
+   ----------------------------------------------------------
+   1. VARIABLES — la charte graphique
+   2. BASE — réglages qui s'appliquent à toute la page
+   3. BOUTONS — la classe .btn est la base
+   4. EN-TÊTE FIXE+MENU HAMBURGER
+   5. BANNIÈRE D'ACCUEIL et EN-TÊTES DE PAGES 
+   6. GRILLES ET CARTES
+   7. TABLEAUX (menu et horaires)
+   8. FORMULAIRES (réservation et contact)
+   9. PIED DE PAGE
+   10. MESSAGES DE FORMULAIRE (réservation et contact)
+   ========================================================== */
+
+/* 1. VARIABLES — la charte graphique en un seul endroit.
+   On écrit var(--brique) plus bas ; pour changer une couleur
+   sur tout le site, il suffit de la modifier ici. */
+:root {
+  --brique: #B23A2E;        /* couleur principale : boutons, liens */
+  --mangue: #F2A93B;        /* couleur secondaire : accents */
+  --brun: #2B1D16;          /* couleur sombre : texte, pied de page */
+  --creme: #FFF8EE;         /* couleur claire : fond des pages */
+  --blanc: #FFFFFF;
+  --creme-fonce: #F6E9D6;   /* fond des sections alternées */
+  --police-titres: "Playfair Display", serif;     /* Georgia = police de secours */
+  --police-texte: "Open Sans", sans-serif;          /* Arial = police de secours */
+  --hauteur-entete: 64px;   /* utilisée pour l'en-tête fixe et le décalage du contenu */
+}
+
+/* 2. BASE — réglages qui s'appliquent à toute la page */
+
+/* border-box : la largeur d'un élément inclut son padding et sa bordure,
+   ce qui rend les calculs de mise en page beaucoup plus simples. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;   /* défilement doux vers les ancres (#plats, #merci...) */
+  /* quand on saute à une ancre, on garde de la place au-dessus pour
+     que le titre ne se cache pas sous l'en-tête fixe */
+  scroll-padding-top: calc(var(--hauteur-entete) + 56px);
+}
+
+body {
+  margin: 0;                              /* supprime la marge par défaut du navigateur */
+  padding-top: var(--hauteur-entete);     /* l'en-tête est fixe : on décale le contenu en dessous */
+  font-family: var(--police-texte);
+  line-height: 1.6;                       /* interligne confortable pour la lecture */
+  color: var(--brun);
+  background: var(--creme);
+  text-align: center;
+}
+
+/* Images : jamais plus larges que leur conteneur, proportions conservées (height: auto) */
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--police-titres); line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 2rem; }      /* rem = multiple de la taille de texte de base (16 px) */
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; }
+a { color: var(--brique); }
+
+/* Contour visible quand on navigue au clavier (Tab) : exigence d'accessibilité WCAG */
+:focus-visible { outline: 3px solid var(--brun); outline-offset: 3px; }
+
+/* Conteneur : centre le contenu et limite sa largeur sur grand écran */
+.conteneur { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+.section { padding: 3rem 0; }                 /* espacement vertical entre les sections */
+.section-alt { background: var(--creme-fonce); } /* section au fond légèrement différent */
+.centre { text-align: center; }
+
+/* Texte caché à l'écran mais lu par les lecteurs d'écran
+   (utilisé pour « note : 5 sur 5 », « végétarien », etc.) */
+.visuellement-cache {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* 3. BOUTONS — la classe .btn est la base ; les autres sont des variantes */
+.btn {
+  display: inline-block; padding: .7rem 1.4rem; border-radius: 6px;
+  background: var(--brique); color: var(--blanc);
+  font-weight: 700; text-decoration: none; border: 2px solid var(--brique);
+  cursor: pointer; font-family: inherit; font-size: 1rem;  /* inherit : les <button> reprennent la police du site */
+}
+.boutons {justify-content: center;}
+.btn:hover { background: var(--brun); border-color: var(--blanc); }
+.btn-clair { background: var(--creme); color: var(--brun); border-color: var(--mangue); }   /* pour fonds sombres */
+.btn-clair:hover { background: var(--mangue); color: var(--brun); border-color: var(--mangue); }
+.btn-contour { background: var(--creme); color: var(--brun); border-color: var(--mangue); }   /* bouton « fantôme » */
+.btn-contour:hover { background: var(--mangue); color: var(--brun); border-color: var(--blanc); }
+
+/* 4. EN-TÊTE FIXE + MENU HAMBURGER (CSS pur, sans JavaScript) */
+.entete {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;  /* fixe en haut, au-dessus du reste */
+  height: var(--hauteur-entete);
+  display: flex; align-items: center; gap: .75rem;           /* flexbox : éléments alignés sur une ligne */
+  padding: 0 1rem; background: var(--creme);
+  border-bottom: 3px solid var(--mangue);
+}
+.logo {
+  margin-right: auto;   /* pousse tout le reste (bouton, burger) vers la droite */
+  font-family: var(--police-titres);
+  font-size: 1.25rem; font-weight: 700; color: var(--brique); text-decoration: none;
+}
+.btn-reserver { padding: .45rem .9rem; font-size: .9rem; }   /* version compacte du bouton, toujours visible */
+
+/* La case à cocher cachée mémorise « menu ouvert / fermé ».
+   Elle est rendue transparente (et non supprimée) pour rester utilisable au clavier. */
+.menu-case { position: absolute; opacity: 0; width: 44px; height: 44px; right: 1rem; }
+
+/* Le label est le bouton hamburger : 3 barres = ::before + span + ::after */
+.burger {
+  width: 44px; height: 44px; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 5px; cursor: pointer;
+}
+.burger span, .burger::before, .burger::after {
+  content: ""; display: block; width: 24px; height: 3px; background: var(--brun);
+}
+/* Contour de focus sur le burger quand la case cachée reçoit le focus clavier */
+.menu-case:focus-visible + .burger { outline: 3px solid var(--brun); outline-offset: 2px; }
+
+/* Menu sur mobile : caché par défaut, déroulé sous l'en-tête */
+.nav-principale {
+  display: none; position: absolute; top: var(--hauteur-entete); left: 0; right: 0;
+  background: var(--creme); border-bottom: 3px solid var(--mangue);
+}
+/* Quand la case est cochée (clic sur le burger), le menu s'affiche.
+   « ~ » = frère suivant : on cible le menu qui vient après la case. */
+.menu-case:checked ~ .nav-principale { display: block; }
+.nav-principale ul { list-style: none; margin: 0; padding: .5rem 1rem 1rem; }
+.nav-principale a {
+  display: block; padding: .75rem 0; color: var(--brun);
+  font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--creme-fonce);
+}
+.nav-principale a:hover { color: var(--brique); }
+.nav-principale a[aria-current="page"] { color: var(--brique); text-decoration: underline; } /* page en cours */
+
+/* 5. BANNIÈRE D'ACCUEIL et EN-TÊTES DE PAGES */
+.banniere {
+  position: relative; min-height: 70vh; display: flex; align-items: center;  /* vh = % de la hauteur de l'écran */
+  color: var(--blanc); background: var(--brun); overflow: hidden;} /* Centrer le contenu de la bannière */
+
+
+/* L'image est posée derrière le texte et remplit toute la bannière (object-fit: cover = recadrage sans déformer) */
+.banniere > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Voile sombre semi-transparent : garantit un contraste suffisant pour le texte blanc */
+.banniere::after { content: ""; position: absolute; inset: 0; background: rgba(43, 29, 22, .65); }
+.banniere .conteneur { position: relative; z-index: 1; padding-top: 2rem; padding-bottom: 2rem; } /* texte au-dessus du voile */
+.banniere p { font-size: 1.1rem; max-width: 36rem; }
+.boutons { display: flex; flex-wrap: wrap; gap: .75rem; }    /* boutons côte à côte, à la ligne si manque de place */
+
+/* Bandeau sombre en haut des pages Menu, À propos, Réservation, Contact */
+.titre-page { background: var(--brun); color: var(--creme); padding: 2.5rem 0; }
+.titre-page p { max-width: 40rem; margin-bottom: 0; }
+.titre-page {text-align: center;}
+.titre-page p {justify-self: center;}
+
+/* 6. GRILLES ET CARTES */
+.grille { display: grid; gap: 1.5rem; }   /* CSS Grid : 1 colonne par défaut sur mobile */
+.carte {
+  background: var(--blanc); border-radius: 10px; overflow: hidden;  /* overflow : arrondit aussi l'image */
+  border: 1px solid var(--creme-fonce);
+}
+.carte img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }  /* toutes les photos au même format */
+.carte-corps { padding: 1rem 1.25rem 1.25rem; }
+.prix { font-weight: 700; color: var(--brique); margin-bottom: 0; }
+.bloc { text-align: center; padding: 1rem; }       /* bloc icône + titre + phrase */
+.icone { font-size: 2.5rem; display: block; margin-bottom: .5rem; }
+.avis { margin: 0; padding: 1.25rem; background: var(--blanc); border-left: 5px solid var(--mangue); border-radius: 6px; }
+.avis p { font-style: italic; }
+.avis footer { font-weight: 700; }
+.etoiles { color: #8A5A00; letter-spacing: 2px; }  /* brun-doré : contraste suffisant sur fond blanc */
+
+/* Bandeau rouge d'appel à l'action (« Une table vous attend ») */
+.bandeau { background: var(--brique); color: var(--blanc); text-align: center; padding: 3rem 0; }
+
+/* 7. TABLEAUX (menu et horaires) */
+.table-defilante { overflow-x: auto; }   /* sur petit écran, le tableau défile au lieu de déborder de la page */
+table { width: 100%; border-collapse: collapse; background: var(--creme); }   /* collapse : bordures fusionnées */
+caption { text-align: left; font-family: var(--police-titres); font-size: 1.4rem; font-weight: 700; padding: .5rem 0; }
+th, td { padding: .7rem .75rem; text-align: left; border-bottom: 1px solid var(--creme-fonce); }
+thead th { background: var(--brique); color: var(--creme); }    /* ligne d'en-tête sombre */
+td:last-child, th:last-child { text-align: right; white-space: nowrap; }   /* dernière colonne (prix) à droite, sans retour à la ligne */
+
+/* 8. FORMULAIRES (réservation et contact) */
+.formulaire { background: var(--blanc); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--creme-fonce); }
+.champ { margin-bottom: 1.1rem; }          /* espace entre deux champs */
+label { display: block; font-weight: 600; margin-bottom: .3rem; }   /* libellé au-dessus du champ */
+input, select, textarea {
+  width: 100%; padding: .65rem; font: inherit; color: var(--brun);
+  background: var(--creme); border: 2px solid var(--brun); border-radius: 6px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--mangue); outline-offset: 1px; }
+/* :user-invalid = champ invalide APRÈS que la personne l'a rempli (pas dès l'arrivée sur la page) */
+input:user-invalid, textarea:user-invalid, select:user-invalid { border-color: #B00020; background: #FFECEC; }
+.aide { font-size: .875rem; margin: .25rem 0 0; }   /* petit texte d'aide sous un champ */
+
+/* 9. PIED DE PAGE */
+.pied { background: var(--brun); color: var(--creme); padding: 2.5rem 0 1rem; }
+.pied a { color: var(--mangue); }
+.pied h2 { font-size: 1.15rem; color: var(--mangue); }
+.pied ul { list-style: none; margin: 0; padding: 0; }   /* retire les puces */
+.pied address { font-style: normal; }                    /* <address> est en italique par défaut */
+.mentions { border-top: 1px solid rgba(255, 248, 238, .3); margin-top: 1.5rem; padding-top: 1rem; font-size: .875rem; text-align: center; }
+
+/* 10. MESSAGES DE FORMULAIRE (réservation et contact)
+   - succès : visible seulement quand l'adresse se termine par #merci.
+     Après un envoi valide, la page est rechargée sur #merci, et
+     :target désigne l'élément dont l'id correspond à cette ancre.
+   - erreur : visible tant qu'un champ du formulaire est invalide
+     (:has teste si le formulaire contient un champ :user-invalid). */
+.message-succes, .message-erreur { display: none; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600; }
+.message-succes { background: #E3F4E1; border: 2px solid #1B5E20; color: #14391A; }
+.message-erreur { background: #FFECEC; border: 2px solid #B00020; color: #7A0016; }
+.message-succes:target { display: block; }
+form:has(:user-invalid) .message-erreur { display: block; }
+
+/* ==========================================================
+   POINTS DE RUPTURE — chaque bloc s'applique à partir de la
+   largeur indiquée et ajoute / remplace des règles ci-dessus.
+   ========================================================== */
+
+/* À partir de 480 px (grand téléphone) : grilles sur 2 colonnes */
+@media (min-width: 480px) {
+  h1 { font-size: 2.4rem; }
+  .grille-3, .grille-2 { grid-template-columns: repeat(2, 1fr); }   /* 1fr = part égale de l'espace */
+}
+
+/* À partir de 768 px (tablette) : le menu sort du bouton hamburger */
+@media (min-width: 768px) {
+  .menu-case, .burger { display: none; }              /* on cache la case et le burger */
+  .entete { padding: 0 2rem; }
+  .logo { margin-right: 0; font-size: 1.5rem; }
+  .nav-principale { display: block; position: static; background: none; border: 0; order: 2; margin-left: auto; }  /* menu en ligne dans l'en-tête */
+  .nav-principale ul { display: flex; gap: 1.5rem; padding: 0; }
+  .nav-principale a { border: 0; padding: .5rem 0; }
+  .btn-reserver { order: 3; margin-left: 1rem; }      /* « order » place le bouton après le menu */
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+  .section { padding: 4rem 0; }
+  .grille-3 { grid-template-columns: repeat(3, 1fr); }   /* 3 colonnes */
+  .grille-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* À partir de 1024 px (ordinateur) : marges plus larges, grille de 4 colonnes */
+@media (min-width: 1024px) {
+  .conteneur { padding: 0 2rem; }
+  .banniere { min-height: 80vh; }
+  .grille-4 { grid-template-columns: repeat(4, 1fr); }
+}
+

@@ -1,0 +1,15 @@
+/* ==========================================================
+                        Page À propos 
+   ========================================================== */
+
+/* Section « Histoire » : texte et photo, empilés sur mobile */
+.histoire { display: grid; gap: 1.5rem; align-items: center; }   /* align-items : centre verticalement texte et photo */
+.histoire img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; }
+
+/* Portraits de l'équipe : on les veut carrés (1 / 1) au lieu du 4 / 3 des cartes */
+.portrait img { aspect-ratio: 1 / 1; }
+
+/* À partir de 768 px : texte à gauche, photo à droite (2 colonnes égales) */
+@media (min-width: 768px) {
+  .histoire { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}

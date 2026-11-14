@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zaëlle Resto</title>
+  <meta name="description" content="Savourez une cuisine créole maison chez Zaëlle Resto. Réservez votre table en ligne.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- EN-TÊTE (identique sur les 5 pages) -->
+  <header class="entete">
+    <a class="logo" href="index.html">Zaëlle Resto</a>
+    <a class="btn btn-reserver" href="reservation.html">Réserver</a>
+    <input type="checkbox" id="menu-case" class="menu-case" aria-label="Ouvrir ou fermer le menu">
+    <label for="menu-case" class="burger" title="Menu"><span></span></label>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 3.1 Bannière : le seul h1 de la page -->
+    <section class="griot">
+      <img src="images/griot.png" alt="Assiette de griot et bananes pesées servie avec du pikliz">
+      <div class="conteneur">
+        <h1>Bienvenue chez Zaëlle Resto</h1>
+        <p>Une cuisine créole et internationale, préparée avec passion et servie avec le sourire.</p>
+        <div class="boutons">
+          <a class="btn btn-clair" href="reservation.html">Réserver une table</a>
+          <a class="btn btn-contour" href="menu.html">Voir le menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.2 Présentation rapide -->
+    <section class="section">
+      <div class="conteneur centre">
+        <h2>Le goût du partage</h2>
+        <p>Chez Zaëlle Resto, chaque repas est une invitation à se retrouver. Nos chefs travaillent des produits frais, sélectionnés chaque matin, pour vous offrir des plats savoureux et généreux. Que ce soit pour un dîner en famille, un repas d’affaires ou une soirée entre amis, nous vous accueillons comme à la maison.</p>
+      </div>
+    </section>
+
+    <!-- 3.3 Nos spécialités -->
+    <section class="section section-alt">
+      <div class="conteneur">
+        <h2 class="centre">Nos plats incontournables</h2>
+        <div class="grille grille-3">
+          <article class="carte">
+            <img src="images/griot2.png" alt="Griot de porc doré avec bananes pesées et pikliz" loading="lazy">
+            <div class="carte-corps">
+              <h3>Griot et bananes pesées</h3>
+              <p>Morceaux de porc marinés aux agrumes, frits puis servis avec pikliz maison.</p>
+              <p class="prix">22 $</p>
+            </div>
+          </article>
+          <article class="carte">
+            <img src="images/poisson.png" alt="Poisson entier mijoté dans une sauce aux herbes et au citron vert" loading="lazy">
+            <div class="carte-corps">
+              <h3>Poisson gros sel</h3>
+              <p>Poisson frais mijoté dans une sauce légère aux herbes et au citron vert.</p>
+              <p class="prix">26 $</p>
+            </div>
+          </article>
+          <article class="carte">
+            <img src="images/poulet.png" alt="Poulet en sauce créole avec du riz collé" loading="lazy">
+            <div class="carte-corps">
+              <h3>Poulet en sauce créole</h3>
+              <p>Poulet tendre mijoté dans une sauce tomate épicée, accompagné de riz collé.</p>
+              <p class="prix">19 $</p>
+            </div>
+          </article>
+        </div>
+        <p class="centre" style="margin-top:1.5rem"><a href="menu.html">Découvrir tout le menu →</a></p>
+      </div>
+    </section>
+
+    <!-- 3.4 Pourquoi nous choisir -->
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="centre">Pourquoi choisir Zaëlle Resto</h2>
+        <div class="grille grille-3">
+          <div class="bloc">
+            <span class="icone" aria-hidden="true"></span>
+            <h3>Produits frais</h3>
+            <p>Nos ingrédients sont achetés chaque jour auprès de fournisseurs locaux.</p>
+          </div>
+          <div class="bloc">
+            <span class="icone" aria-hidden="true"></span>
+            <h3>Cuisine faite maison</h3>
+            <p>Sauces, marinades et desserts sont préparés sur place.</p>
+          </div>
+          <div class="bloc">
+            <span class="icone" aria-hidden="true"></span>
+            <h3>Accueil chaleureux</h3>
+            <p>Notre équipe met tout en œuvre pour que vous passiez un moment agréable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5 Avis des clients -->
+    <section class="section section-alt">
+      <div class="conteneur">
+        <h2 class="centre">Ce que disent nos clients</h2>
+        <div class="grille grille-3">
+          <blockquote class="avis">
+            <p>« Le meilleur griot que j’ai mangé depuis longtemps. Service rapide et très aimable. »</p>
+            <footer>Marie L. <span class="etoiles" aria-hidden="true">★★★★★</span><span class="visuellement-cache">, note : 5 sur 5</span></footer>
+          </blockquote>
+          <blockquote class="avis">
+            <p>« Une ambiance familiale et des portions généreuses. Nous reviendrons ! »</p>
+            <footer>Jonathan P. <span class="etoiles" aria-hidden="true">★★★★★</span><span class="visuellement-cache">, note : 5 sur 5</span></footer>
+          </blockquote>
+          <blockquote class="avis">
+            <p>« Parfait pour un dîner d’équipe. Tout le monde a adoré. »</p>
+            <footer>Sophie D. <span class="etoiles" aria-hidden="true">★★★★☆</span><span class="visuellement-cache">, note : 4 sur 5</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.6 Bandeau de réservation -->
+    <section class="bandeau">
+      <div class="conteneur">
+        <h2>Une table vous attend</h2>
+        <p>Réservez en ligne en moins d’une minute et laissez-nous nous occuper du reste.</p>
+        <a class="btn btn-clair" href="reservation.html">Réserver maintenant</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIED DE PAGE (identique sur les 5 pages) -->
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="grille grille-3">
+        <section>
+          <h2>Zaëlle Resto</h2>
+          <p>Une cuisine créole et internationale, faite avec cœur.</p>
+        </section>
+        <section>
+          <h2>Horaires d’ouverture</h2>
+          <ul>
+            <li>Lundi : 12 h – 21 h</li>
+            <li>Mardi à Jeudi : 11 h 30 – 22 h</li>
+            <li>Vendredi et Samedi : 11 h 30 – 23 h</li>
+            <li>Dimanche : fermé</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Visitez-nous</h2>
+          <address>
+            #76-A rue Jaques Roumain, Delmas 31, Port-au-Prince Haïti.<br>
+            <a href="tel:+(509) 3401-9469 / 41825701">+(509) 3401-9469 / 4182-5701</a><br>
+            <a href="mailto:zaelleresto21@gmail.com">zaelleresto21@gmail.com</a>
+          </address>
+          <ul>
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/">TikTok</a></li>
+          </ul>
+        </section>
+      </div>
+      <p class="mentions">© 2026 Zaëlle Resto. Tous droits réservés. · <a href="#">Politique de confidentialité</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

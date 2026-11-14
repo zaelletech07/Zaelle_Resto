@@ -1,0 +1,15 @@
+/* ==========================================================
+                        Page Réservation 
+   ========================================================== */
+
+/* Formulaire et informations pratiques : empilés sur mobile */
+.reservation-colonnes { display: grid; gap: 2.5rem; }
+
+/* Liste « Bon à savoir » dans la colonne de droite */
+aside ul { padding-left: 1.2rem; margin: 0 0 2rem; }
+aside li { margin-bottom: .5rem; }
+
+/* À partir de 1024 px : formulaire à gauche (3 parts), infos à droite (2 parts) */
+@media (min-width: 1024px) {
+  .reservation-colonnes { grid-template-columns: 3fr 2fr; align-items: start; }  /* start : les colonnes s'alignent en haut */
+}
